@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guess European Country</title>
+</head>
+
+<body>
+    <h1>Congratulations!</h1>
+    <script>
+        var words = ["russia", "ukraine", "england", "france", "spain", "portugal", "germany",
+            "italy", "belgium", "sweden", "norway", "finland", "scotland", "ireland", "poland",
+            "romania", "greece", "netherlands", "switzerland"];
+        var word = words[Math.floor(Math.random() * words.length)];
+        var answerArray = [];
+        for (var i = 0; i < word.length; i++) {
+            answerArray[i] = "_";
+        }
+        var remainingLetters = word.length;
+        while (remainingLetters > 0) {
+            alert(answerArray.join(" "));
+            var guess = prompt("Guess letter in European Country");
+            if (guess.length !== 1) {
+                alert("Please enter a single letter");
+            } else {
+                for (var j = 0; j < word.length; j++) {
+                    if (word[j] === guess) {
+                        answerArray[j] = guess;
+                        remainingLetters--;
+                    }
+                }
+            }
+        }
+        alert(answerArray.join(" "));
+        alert("You got it! It's " + word + "!");
+    </script>
+</body>
+
+</html>
